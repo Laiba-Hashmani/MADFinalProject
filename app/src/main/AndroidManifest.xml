@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mobileapptaylors.example.MAD_assignment1">
+
+
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/meeting1"
+        android:label="Meeting Reminder"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <receiver android:name="mobileapptaylors.example.MAD_assignment1.AlarmBroadcaster" />
+
+        <service
+            android:name="mobileapptaylors.example.MAD_assignment1.NotificationTrigger"
+            android:exported="false" />
+
+        <receiver
+            android:name="mobileapptaylors.example.MAD_assignment1.DeviceBootReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
+        <activity android:name="mobileapptaylors.example.MAD_assignment1.ViewSlots" />
+        <activity
+            android:name="mobileapptaylors.example.MAD_assignment1.Home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="mobileapptaylors.example.MAD_assignment1.AddSlots" />
+        <activity android:name="mobileapptaylors.example.MAD_assignment1.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name="mobileapptaylors.example.MAD_assignment1.Welcome" />
+        <activity android:name="mobileapptaylors.example.MAD_assignment1.Help" />
+        <activity android:name="mobileapptaylors.example.MAD_assignment1.updateSlot"></activity>
+    </application>
+
+</manifest>
